@@ -2,6 +2,13 @@
 if (isset($_POST['theme'])) {
     setcookie('theme', $_POST['theme'], time() + (86400 * 30), "/");
     header("Location: " . $_SERVER['PHP_SELF']);
+    if ($_POST['theme'] == 'del') {
+        setcookie("theme", "", [
+            "expires" => time() - 3600, // Удаление
+            "path" => "/"
+        ]);
+    
+    }
 }
 ?>
 
@@ -17,9 +24,10 @@ if (isset($_POST['theme'])) {
     </style>
 </head>
 <body>
-    <form method="post">
+    <form method="POST">
         <button name="theme" value="black">Тёмная тема</button>
-        <button name="theme" value="white">Светлая тема</button>
+        <button name="theme" value="red">Светлая тема</button>
+        <button name="theme" value="del">Удалить cookie</button>
     </form>
 </body>
 </html>
