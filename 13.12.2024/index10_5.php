@@ -17,7 +17,7 @@
 			    if ($result->num_rows > 0) {
 				    while ($row = $result->fetch_assoc()) {
 					    echo "<tr>"."<td>".$row["id"]."</td>"."<td>". $row["name"]."</td>"."</tr>";}}
-			    else {echo "Нет студентов.";}
+			    else {echo "Нет преподавателей.";}
 			?>
         </table>
 		
@@ -35,13 +35,14 @@
 				if ($result->num_rows > 0) {
 					while ($row = $result->fetch_assoc()) {
 						echo "<tr>"."<td>".$row["id"]."</td>"."<td>". $row["name"]."</td>"."</tr>";}}
-				else {echo "Нет групп.";}
+				else {echo "Нет курсов.";}
 				$conn->close();
 			?>
         </table>
     </div>
 	
 	<br>
+	<p>Связывание преподавателя с курсом</p>
 	<form method="post" style='display:flex'>
 	    <div style='display:flex;flex-direction:column;'>
 	        Введите id преподавателя
